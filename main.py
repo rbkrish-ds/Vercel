@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request, Query, HTTPException, jsonify  # Import Request
+from fastapi import FastAPI, Request, Query, HTTPException  # Import Request
 import json
 from typing import List, Dict, Optional
 
