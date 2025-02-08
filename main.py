@@ -23,8 +23,10 @@ async def read_api_root(request: Request, name: List[str] = Query(..., descripti
     
 
     results: List[Optional[int]] = []
-
+    print(name)
+    print(marks)
     for name_val in name:
+        print(name_val)
         mark_data = marks.get(name_val)
         print(mark_data)
         if mark_data:
