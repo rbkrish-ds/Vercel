@@ -27,12 +27,9 @@ async def read_api_root(request: Request, name: List[str] = Query(..., descripti
     print(marks)
     for name_val in name:
         print(name_val)
-        mark_data = marks.get(name_val)
-        print(mark_data)
-        if mark_data:
-            results.append(mark_data.get('marks'))  # safer way to access the marks
-
-        else:
-            results.append(None)
+        for mark in marks:
+            if mark["name"]==name_val:
+                results.append(mark["marks"])
+       
 
     return results # Return directly, FastAPI handles JSON conversion
