@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Request, Query, HTTPException  # Import Request
+from fastapi.middleware.cors import CORSMiddleware  # Import CORS middleware
 import json
 from typing import List, Dict, Optional
 
