@@ -3,7 +3,16 @@ import json
 from typing import List, Dict, Optional
 
 app = FastAPI()
+# Add CORS middleware
+origins = ["*"]  # Allow all origins (for development).  **IMPORTANT:** Restrict in production!
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all methods
+    allow_headers=["*"],  # Allow all headers
+)
 @app.get("/")
 def read_root():
     return {"message": "Hello, World!"}
