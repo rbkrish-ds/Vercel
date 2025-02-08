@@ -32,4 +32,4 @@ async def read_api_root(request: Request, name: List[str] = Query(..., descripti
                 results.append(mark["marks"])
        
 
-    return results # Return directly, FastAPI handles JSON conversion
+    return { "marks": results } # Return directly, FastAPI handles JSON conversion
