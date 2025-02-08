@@ -11,9 +11,12 @@ def read_root():
 
 @app.get("/api")
 def read_api_root():
+    print("api")
     with open('q-vercel-python.json', 'r') as f:
         marks = json.load(f)
     names = request.args.getlist('name')
+    print(names)
+    print(json.dumbs(marks))
     results = []
 
     for name in names:
