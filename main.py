@@ -9,7 +9,7 @@ def read_root():
     return {"message": "Hello, World!"}
 
 @app.get("/api")
-async def read_api_root(request: Request, names: List[str] = Query(..., description="List of names")): # Use Request object
+async def read_api_root(request: Request, name: List[str] = Query(..., description="List of names")): # Use Request object
     print("api")
     try:
         with open('q-vercel-python.json', 'r') as f:
@@ -20,13 +20,13 @@ async def read_api_root(request: Request, names: List[str] = Query(..., descript
         raise HTTPException(status_code=500, detail="Invalid JSON in q-vercel-python.json")
 
 
-    print(names)
-    print(marks) # No need to json.dumps, FastAPI handles it
+    
 
     results: List[Optional[int]] = []
 
-    for name in names:
-        mark_data = marks.get(name)
+    for name_val in name:
+        mark_data = marks.get(name_val)
+        print(mark_data)
         if mark_data:
             results.append(mark_data.get('marks'))  # safer way to access the marks
 
